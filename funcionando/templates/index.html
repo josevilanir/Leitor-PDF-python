@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extrair Músicas</title>
+</head>
+<body>
+    <h1>Extrair Músicas de um PDF</h1>
+    <input type="file" id="inputFile" accept=".pdf">
+    <button onclick="extrairMusicas()">Extrair Músicas</button>
+    <div id="output"></div>
+
+    <script>
+        function extrairMusicas() {
+            const inputFile = document.getElementById('inputFile').files[0];
+            const outputDiv = document.getElementById('output');
+
+            if (inputFile) {
+                const formData = new FormData();
+                formData.append('pdf_file', inputFile);
+
+                fetch('/extrair_musicas', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.text())
+                .then(data => {
+                    outputDiv.innerHTML = data;
+                })
+                .catch(error => {
+                    outputDiv.innerHTML = 'Ocorreu um erro ao extrair as músicas.';
+                    console.error('Erro:', error);
+                });
+            } else {
+                outputDiv.innerHTML = 'Por favor, selecione um arquivo PDF.';
+            }
+        }
+    </script>
+</body>
+</html>
