@@ -16,6 +16,5 @@ def extrair_musicas(pdf_principal, output_folder):
                     nova_pagina.merge_page(page)
                     writer.write(output_file)
 
-# Substitua 'caminho_para_pdf_principal.pdf' pelo caminho para o seu PDF principal
-# e 'caminho_para_output_folder' pelo caminho para a pasta onde você quer salvar os PDFs separados
+
 extrair_musicas(r'C:\Users\Asus\OneDrive\Área de Trabalho\LIDER LOUVOR JVNS\PRINCIPAL.pdf', r'C:\Users\Asus\OneDrive\Área de Trabalho\LIDER LOUVOR JVNS')

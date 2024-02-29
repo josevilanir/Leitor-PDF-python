@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-import fitz  # PyMuPDF
+import fitz  
 import os
 import re
 import webbrowser
