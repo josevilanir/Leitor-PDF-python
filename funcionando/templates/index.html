@@ -3,13 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Extrair Músicas</title>
+    <title>Divisor de PDF de Músicas</title>
+    <style>
+        body {
+            background-color: #f0f0f0; /* Cor de fundo */
+            font-family: Arial, sans-serif;
+            text-align: center; /* Centraliza o texto */
+        }
+
+        .container {
+            margin: 0 auto; /* Centraliza a div horizontalmente */
+            max-width: 600px; /* Largura máxima da div */
+            padding: 20px;
+            background-color: white; /* Cor de fundo da div */
+            border-radius: 10px; /* Borda arredondada */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        }
+
+        input[type="file"],
+        button {
+            margin-top: 20px; /* Espaço acima do input e do botão */
+            padding: 10px; /* Preenchimento interno */
+            width: 100%; /* Largura total */
+            border: 2px solid #ccc; /* Borda cinza */
+            border-radius: 5px; /* Borda arredondada */
+            box-sizing: border-box; /* Inclui padding e border na largura */
+        }
+
+        button {
+            background-color: #007bff; /* Cor de fundo azul */
+            color: #fff; /* Cor do texto branco */
+            border: none; /* Sem borda */
+            border-radius: 5px; /* Borda arredondada */
+            cursor: pointer; /* Cursor de mão ao passar por cima */
+            transition: background-color 0.3s; /* Transição suave */
+        }
+
+        button:hover {
+            background-color: #0056b3; /* Cor de fundo azul mais escura ao passar por cima */
+        }
+
+        #output {
+            margin-top: 20px; /* Espaço acima da div de saída */
+            padding: 20px;
+            background-color: #fff; /* Cor de fundo branca */
+            border-radius: 5px; /* Borda arredondada */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            text-align: left; /* Alinha o texto à esquerda */
+        }
+    </style>
 </head>
 <body>
-    <h1>Extrair Músicas de um PDF</h1>
-    <input type="file" id="inputFile" accept=".pdf">
-    <button onclick="extrairMusicas()">Extrair Músicas</button>
-    <div id="output"></div>
+    <div class="container">
+        <h1>Divisor de PDF de Músicas</h1>
+        <p>Este script em Python lê um arquivo PDF com cifras de músicas e cria vários PDFs individuais com base na quantidade de músicas. Os arquivos gerados terão o nome do título da música.</p>
+        <p><strong>Observação:</strong> Para que a separação ocorra corretamente, é necessário sempre sinalizar no arquivo PDF o início de cada música com a frase 'Título da Música'.</p>
+        <input type="file" id="inputFile" accept=".pdf">
+        <button onclick="extrairMusicas()">Extrair Músicas</button>
+        <div id="output"></div>
+    </div>
 
     <script>
         function extrairMusicas() {
